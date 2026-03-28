@@ -205,25 +205,25 @@
     ctx.beginPath();ctx.ellipse(0,0,r*p,r*0.65*p,0,Math.PI,0);
     ctx.bezierCurveTo(r*0.6*p,r*0.22*p,-r*0.6*p,r*0.22*p,-r*p,0);
     const g=ctx.createRadialGradient(0,-r*0.2,r*0.05,0,0,r*1.1);
-    g.addColorStop(0,`rgba(150,195,235,${0.24+Math.sin(ph)*0.04})`);
-    g.addColorStop(0.5,'rgba(80,135,200,0.13)');g.addColorStop(1,'rgba(30,60,150,0)');
+    g.addColorStop(0,`rgba(180,230,255,${0.28+Math.sin(ph)*0.05})`);
+    g.addColorStop(0.5,'rgba(100,170,240,0.16)');g.addColorStop(1,'rgba(40,80,180,0)');
     ctx.fillStyle=g;ctx.fill();
-    ctx.strokeStyle=`rgba(160,200,240,${0.28+Math.sin(ph)*0.07})`;ctx.lineWidth=1.5;ctx.stroke();
+    ctx.strokeStyle=`rgba(180,230,255,${0.35+Math.sin(ph)*0.08})`;ctx.lineWidth=1.5;ctx.stroke();
     for(let i=0;i<14;i++){
       const tx=(i/13-0.5)*r*1.5,sw=Math.sin(ph+i*0.5)*22,sw2=Math.sin(ph*0.6+i*0.3)*12;
       ctx.beginPath();ctx.moveTo(tx,r*0.12*p);
       ctx.bezierCurveTo(tx+sw*0.3,r*0.6,tx+sw+sw2,r*1.2,tx+sw*1.4,r*1.8+Math.sin(ph+i)*22);
-      ctx.strokeStyle=`rgba(140,190,235,${0.15+Math.sin(ph+i)*0.05})`;ctx.lineWidth=1+Math.sin(ph+i*0.7)*0.4;ctx.stroke();
+      ctx.strokeStyle=`rgba(160,220,255,${0.18+Math.sin(ph+i)*0.06})`;ctx.lineWidth=1+Math.sin(ph+i*0.7)*0.4;ctx.stroke();
     }
     ctx.restore();
   }
   function loop(){
     t+=0.012;ctx.clearRect(0,0,W,H);
     const b=Math.min(W,H);
-    drawJelly(W*0.19+Math.sin(t*0.28)*12,H*0.34+Math.sin(t*0.2)*10,b*0.19,t*0.9);
-    drawJelly(W*0.48+Math.sin(t*0.27)*8,H*0.24+Math.sin(t*0.33)*6,b*0.12,t*0.85+1.8);
-    drawJelly(W*0.96+Math.sin(t*0.22)*6,H*0.30+Math.sin(t*0.28)*8,b*0.13,t*0.95+3.1);
-    drawJelly(W*0.85+Math.sin(t*0.3)*8,H*0.63+Math.sin(t*0.24)*6,b*0.09,t*1.6+4.5);
+    drawJelly(W*0.18+Math.sin(t*0.20)*10, H*0.30+Math.sin(t*0.22)*20, b*0.20, t*0.9);
+    drawJelly(W*0.50+Math.sin(t*0.24)*8,  H*0.22+Math.sin(t*0.30)*16, b*0.11, t*0.85+1.8);
+    drawJelly(W*0.97+Math.sin(t*0.18)*6,  H*0.26+Math.sin(t*0.28)*16, b*0.13, t*0.95+3.1);
+    drawJelly(W*0.84+Math.sin(t*0.26)*8,  H*0.62+Math.sin(t*0.48)*22, b*0.09, t*1.6+4.5);
     requestAnimationFrame(loop);
   }
   loop();

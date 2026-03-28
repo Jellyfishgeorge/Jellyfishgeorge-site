@@ -199,7 +199,7 @@
   let W,H,t=0;
   function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
   window.addEventListener('resize',resize);resize();
-      function drawJelly(cx,cy,r,ph){
+  function drawJelly(cx,cy,r,ph){
     ctx.save();ctx.translate(cx,cy);
     const p=1+Math.sin(ph*0.7)*0.05;
     ctx.beginPath();ctx.ellipse(0,0,r*p,r*0.65*p,0,Math.PI,0);
@@ -217,13 +217,13 @@
     }
     ctx.restore();
   }
-    function loop(){
+  function loop(){
     t+=0.012;ctx.clearRect(0,0,W,H);
     const b=Math.min(W,H);
-    drawJelly(W*0.19+Math.sin(t*0.22)*10, H*0.34+Math.sin(t*0.22)*18, b*0.19, t*0.9);
-    drawJelly(W*0.48+Math.sin(t*0.27)*8,  H*0.24+Math.sin(t*0.30)*20, b*0.12, t*0.85+1.8);
-    drawJelly(W*0.96+Math.sin(t*0.20)*6,  H*0.30+Math.sin(t*0.28)*18, b*0.13, t*0.95+3.1);
-    drawJelly(W*0.85+Math.sin(t*0.32)*8,  H*0.63+Math.sin(t*0.50)*24, b*0.09, t*1.6+4.5);
+    drawJelly(W*0.19+Math.sin(t*0.28)*12,H*0.34+Math.sin(t*0.2)*10,b*0.19,t*0.9);
+    drawJelly(W*0.48+Math.sin(t*0.27)*8,H*0.24+Math.sin(t*0.33)*6,b*0.12,t*0.85+1.8);
+    drawJelly(W*0.96+Math.sin(t*0.22)*6,H*0.30+Math.sin(t*0.28)*8,b*0.13,t*0.95+3.1);
+    drawJelly(W*0.85+Math.sin(t*0.3)*8,H*0.63+Math.sin(t*0.24)*6,b*0.09,t*1.6+4.5);
     requestAnimationFrame(loop);
   }
   loop();

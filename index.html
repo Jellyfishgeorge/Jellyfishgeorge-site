@@ -220,10 +220,10 @@
   function loop(){
     t+=0.012;ctx.clearRect(0,0,W,H);
     const b=Math.min(W,H);
-    drawJelly(W*0.18+Math.sin(t*0.20)*10, H*0.30+Math.sin(t*0.22)*20, b*0.20, t*0.9);
-    drawJelly(W*0.50+Math.sin(t*0.24)*8,  H*0.22+Math.sin(t*0.30)*16, b*0.11, t*0.85+1.8);
-    drawJelly(W*0.97+Math.sin(t*0.18)*6,  H*0.26+Math.sin(t*0.28)*16, b*0.13, t*0.95+3.1);
-    drawJelly(W*0.84+Math.sin(t*0.26)*8,  H*0.62+Math.sin(t*0.48)*22, b*0.09, t*1.6+4.5);
+    drawJelly(W*0.18+Math.sin(t*0.20)*10, H*0.30+Math.sin(t*0.22)*20, b*0.10, t*0.9);
+    drawJelly(W*0.50+Math.sin(t*0.24)*8,  H*0.22+Math.sin(t*0.30)*16, b*0.06, t*0.85+1.8);
+    drawJelly(W*0.97+Math.sin(t*0.18)*6,  H*0.26+Math.sin(t*0.28)*16, b*0.04, t*0.95+3.1);
+    drawJelly(W*0.84+Math.sin(t*0.26)*8,  H*0.62+Math.sin(t*0.48)*22, b*0.08, t*1.6+4.5);
     requestAnimationFrame(loop);
   }
   loop();

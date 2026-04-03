@@ -167,6 +167,21 @@
     });
   }
   loadTickets();
+  initGameButton();
+
+  async function initGameButton() {
+    const { data: { session } } = await sb.auth.getSession();
+    if (!session) return;
+    const { data } = await sb.from('tickets').select('id').eq('user_id', session.user.id).limit(1);
+    if (!data || !data.length) return;
+    const a = document.createElement('a');
+    a.href = '/baksogratis.html';
+    a.style.cssText = 'position:fixed;bottom:28px;right:28px;z-index:900;background:rgba(15,8,0,0.88);border:1px solid rgba(255,155,0,0.38);color:rgba(255,185,60,0.88);padding:13px 26px;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;transition:all 0.25s;backdrop-filter:blur(10px);';
+    a.textContent = 'Play Game →';
+    a.addEventListener('mouseenter', () => { a.style.borderColor='rgba(255,155,0,0.75)'; a.style.color='#fff'; });
+    a.addEventListener('mouseleave', () => { a.style.borderColor='rgba(255,155,0,0.38)'; a.style.color='rgba(255,185,60,0.88)'; });
+    document.body.appendChild(a);
+  }
 
   function handleTicket() {
     sb.auth.getSession().then(({data:{session}})=>{

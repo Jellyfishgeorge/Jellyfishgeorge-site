@@ -174,10 +174,24 @@
         btn.textContent = 'Put me on the map';
         return;
       }
+           const card = document.querySelector('.card');
+      card.style.transition = 'opacity 0.4s';
+      card.style.opacity = '0';
+      setTimeout(() => {
+        card.innerHTML = `
+          <div class="top-label">Mission complete</div>
+          <h1>Epic.<br>You're on the map.</h1>
+          <p class="sub" style="color:rgba(120,220,160,0.85);font-size:15px;">You just unlocked BaksoGratis.</p>
+          <p class="sub">Feed 10,000 people one bakso bowl at a time. The game is yours.</p>
+          <a href="/baksogratis.html" style="text-decoration:none;display:block;width:100%;">
+            <button class="btn" style="border-color:rgba(255,155,0,0.5);color:rgba(255,185,60,0.9);">Play Game →</button>
+          </a>
+          <div onclick="window.location.href='/'" style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2);cursor:pointer;padding-top:4px;">Check your pin on the map ↗</div>
+        `;
+        card.style.opacity = '1';
+      }, 400);
+      setTimeout(() => { window.location.href = '/'; }, 7000);
 
-      btn.textContent = "You're on the map";
-      showMsg('See you on October 25, 2036.', 'success');
-      setTimeout(() => { window.location.href = '/'; }, 2500);
     }
   </script>
 </body>
